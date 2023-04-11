@@ -3,7 +3,7 @@ import React from "react";
 export const Dashboard = () => {
     return (
         <div className="Smartwatch m-auto mt-5">
-            <div className="content-center">
+            <div className="content-center keyboard">
                 <div className="grid grid-cols-4 mx-auto bottomMiddle">
                     <div className="my-auto px-2 symbol">!@#</div>
                     <div className="my-auto px-1 number">123</div>
