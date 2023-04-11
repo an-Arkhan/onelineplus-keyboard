@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Smartwatch {
+  height: 484px;
+  width: 396px;
+  border: 5px black;
+  border-style: solid;
+  border-radius: 50px;
+}
+
+.bottomButton {
+  height: 99px;
+  border: 5px #282c34;
+  border-top: 2px white;
+  border-style: solid;
+  border-bottom-left-radius: 42px;
+  border-bottom-right-radius: 42px;
+  background-color: #282c34;
+  list-style: inline;
+  font-weight: bold;
+}
+
+.bottomMiddle {
+  height: 99px;
+  border: 5px #282c34;
+  border-style: solid;
+  margin-top: 276px;
+  background-color: #282c34;
+  list-style: inline;
+  font-weight: bold;
+}
+
+.bottomMiddle div {
+  color: white;
+}
+
+.bottomButton div {
+  color: white;
+}
+
+.number {
+  border-left: 2px gray;
+  border-right: 2px gray;
+  border-style: solid;
+}
+
+.space {
+  border-right: 2px gray;
+  border-style: solid;
+}
+
+.firstAlpha {
+  border-left: 2px gray;
+  border-right: 2px gray;
+  border-style: solid;
+}
+
+.thirdAlpha {
+  border-left: 2px gray;
+  border-right: 2px gray;
+  border-style: solid;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useMemo, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import { Dashboard } from "./pages/Dashboard";
+import './styles/App.css';
+import { AuthContext } from "./contexts/AuthContext";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+export const App = () => {
+  const [auth, setAuth] = useState(null);
+
+  const authContextValue = useMemo(
+    () => ({
+      auth,
+      setAuth,
+    }),
+    [auth]
   );
-}
+
+  const paths = [
+    {
+      path: "/",
+      element: (
+        <Dashboard />
+      ),
+    }
+  ];
+
+  return (
+    <AuthContext.Provider value={authContextValue}>
+      <Routes>
+        {paths.map((item, index) => (
+        <Route key={index} {...item} />
+        ))}
+      </Routes>
+    </AuthContext.Provider>
+  );
+};
 
 export default App;
