@@ -3,30 +3,33 @@
 @tailwind utilities;
 
 .Smartwatch {
-  height: 484px;
-  width: 396px;
+  height: 197px;
+  width: 162px;
   border: 5px black;
   border-style: solid;
-  border-radius: 50px;
+  border-radius: 44px;
+}
+
+.keyboard {
+  font-size: 11px;
 }
 
 .bottomButton {
-  height: 99px;
-  border: 5px #282c34;
-  border-top: 2px white;
+  height: 50px;
+  border-top: 1px white;
   border-style: solid;
-  border-bottom-left-radius: 42px;
-  border-bottom-right-radius: 42px;
+  border-bottom-left-radius: 38px;
+  border-bottom-right-radius: 38px;
   background-color: #282c34;
   list-style: inline;
   font-weight: bold;
 }
 
 .bottomMiddle {
-  height: 99px;
-  border: 5px #282c34;
+  height: 50px;
+  border-top: 1px white;
   border-style: solid;
-  margin-top: 276px;
+  margin-top: 88px;
   background-color: #282c34;
   list-style: inline;
   font-weight: bold;
@@ -49,6 +52,7 @@
 .space {
   border-right: 2px gray;
   border-style: solid;
+  font-size: 10px;
 }
 
 .firstAlpha {
@@ -57,8 +61,7 @@
   border-style: solid;
 }
 
-.thirdAlpha {
-  border-left: 2px gray;
+.secondAlpha {
   border-right: 2px gray;
   border-style: solid;
 }
