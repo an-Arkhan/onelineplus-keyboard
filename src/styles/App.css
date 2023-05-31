@@ -5,9 +5,21 @@
 .Smartwatch {
   height: 197px;
   width: 162px;
-  border: 5px black;
+  border: 1.75px black;
   border-style: solid;
-  border-radius: 44px;
+  border-radius: 32px;
+}
+
+.text-center {
+  margin-top: 2px;
+}
+
+.box-input {
+  font-size: small;
+  width: 149px;
+  height: 50px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .keyboard {
@@ -18,24 +30,37 @@
   height: 50px;
   border-top: 1px white;
   border-style: solid;
-  border-bottom-left-radius: 38px;
-  border-bottom-right-radius: 38px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
   background-color: #282c34;
   list-style: inline;
   font-weight: bold;
 }
 
-.bottomMiddle {
+.middleButton {
   height: 50px;
   border-top: 1px white;
   border-style: solid;
-  margin-top: 88px;
   background-color: #282c34;
   list-style: inline;
   font-weight: bold;
 }
 
-.bottomMiddle div {
+.middleHeight {
+  height: 50px;
+  color: white;
+}
+
+.topButton {
+  height: 35px;
+  border-top: 1px white;
+  border-style: solid;
+  background-color: #282c34;
+  list-style: inline;
+  font-weight: bold;
+}
+
+.topButton div {
   color: white;
 }
 
@@ -43,27 +68,20 @@
   color: white;
 }
 
-.number {
-  border-left: 2px gray;
-  border-right: 2px gray;
+.enter {
+  border-left: 1px gray;
+  border-right: 1px gray;
   border-style: solid;
 }
 
 .space {
-  border-right: 2px gray;
+  border-right: 1px gray;
   border-style: solid;
   font-size: 10px;
 }
 
-.firstAlpha {
-  border-left: 2px gray;
-  border-right: 2px gray;
-  border-style: solid;
-}
-
-.secondAlpha {
-  border-right: 2px gray;
-  border-style: solid;
+.key {
+  height: 56px;
 }
 
 .App {
