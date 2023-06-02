@@ -14,7 +14,7 @@ export const Dashboard = () => {
             </div>
             <div className="Smartwatch m-auto mt-5">
                 <div className="text-center" id="key-input">
-                    <input
+                    <textarea
                         value={message}
                         className="box-input"
                         type="text"
