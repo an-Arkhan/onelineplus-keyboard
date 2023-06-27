@@ -13,7 +13,11 @@ import "../styles/styles.css";
 // import required modules
 import { Keyboard, Pagination, Navigation } from "swiper";
 
-const App = ({ message, setMessage }) => {
+// word data
+var data = require("../WORD_DATA.json")
+
+const Board = ({ message, setMessage }) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [isCap, setIsCap] = useState(0);
 
     // mousedown time of each button
@@ -26,7 +30,7 @@ const App = ({ message, setMessage }) => {
       // to differentiate long press and short press
       var gap_time = cur_time - press_time;
 
-      if(gap_time > 1000 && ((id >= 4 && id <= 12) || id === 14)) {
+      if(gap_time > 1500 && ((id >= 4 && id <= 12) || id === 14)) {
         // long press
         const append = (id === 14) ? 0: id-3;
         setMessage(message+append);
@@ -38,14 +42,39 @@ const App = ({ message, setMessage }) => {
       }
     }
 
+    const autoText = auto => {
+        setMessage(auto);
+    }
+
   return (
     <>
       <div className="content-center keyboard">
-        <div className="grid grid-cols-4 mx-auto topButton">
-          <div className="my-auto px-2 textOne">Lorem</div>
+        <div className="grid grid-flow-col mx-auto topButton">
+            {data
+                .filter((item) => {
+                    const keyTerm = message.toLowerCase();
+                    const words = item.words.toLowerCase();
+
+                    return (
+                        keyTerm &&
+                        words.startsWith(keyTerm) &&
+                        words !== keyTerm
+                    )
+                })
+                .slice(0,3)
+                .map((item) => (
+                    <div 
+                        onClick={() => autoText(item.words+" ")}
+                        className="my-auto py-2 px-2 autotext"
+                        key={item.words}>
+                        {item.words}
+                    </div>
+                ))
+            }
+          {/* <div className="my-auto px-2 textOne">Lorem</div>
           <div className="my-auto px-2 textTwo">Ipsum</div>
           <div className="my-auto px-2 textThree">Dolor</div>
-          <div className="my-auto px-2.5 textFour">Sit</div>
+          <div className="my-auto px-2.5 textFour">Sit</div> */}
         </div>
         <div className="grid grid-cols-4 mx-auto middleButton">
           <button 
@@ -88,7 +117,7 @@ const App = ({ message, setMessage }) => {
         className="bottomButton"
       >
         <SwiperSlide className="py-2">
-            <div class="alpha-button" id="abc">
+            <div className="alpha-button" id="abc">
                 <button 
                     id="4" 
                     onMouseDown={() => press_time = new Date()} 
@@ -99,7 +128,7 @@ const App = ({ message, setMessage }) => {
             </div>
         </SwiperSlide>
         <SwiperSlide className="py-2">
-            <div class="alpha-button" id="def">
+            <div className="alpha-button" id="def">
                 <button 
                     id="5" 
                     onMouseDown={() => press_time = new Date()} 
@@ -110,7 +139,7 @@ const App = ({ message, setMessage }) => {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div class="alpha-button" id="ghi">
+            <div className="alpha-button" id="ghi">
                 <button 
                     id="6" 
                     onMouseDown={() => press_time = new Date()} 
@@ -121,7 +150,7 @@ const App = ({ message, setMessage }) => {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div class="alpha-button" id="jkl">
+            <div className="alpha-button" id="jkl">
                 <button 
                     id="7" 
                     onMouseDown={() => press_time = new Date()} 
@@ -132,7 +161,7 @@ const App = ({ message, setMessage }) => {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div class="alpha-button" id="mno">
+            <div className="alpha-button" id="mno">
                 <button 
                     id="8" 
                     onMouseDown={() => press_time = new Date()} 
@@ -143,7 +172,7 @@ const App = ({ message, setMessage }) => {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div class="alpha-button" id="pqrs">
+            <div className="alpha-button" id="pqrs">
                 <button 
                     id="9" 
                     onMouseDown={() => press_time = new Date()} 
@@ -154,7 +183,7 @@ const App = ({ message, setMessage }) => {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div class="alpha-button" id="tuv">
+            <div className="alpha-button" id="tuv">
                 <button 
                     id="10" 
                     onMouseDown={() => press_time = new Date()} 
@@ -165,7 +194,7 @@ const App = ({ message, setMessage }) => {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div class="alpha-button" id="wxyz">
+            <div className="alpha-button" id="wxyz">
                 <button 
                     id="11" 
                     onMouseDown={() => press_time = new Date()} 
@@ -176,7 +205,7 @@ const App = ({ message, setMessage }) => {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div class="alpha-button" id="symbol1">
+            <div className="alpha-button" id="symbol1">
                 <button 
                     id="12" 
                     onMouseDown={() => press_time = new Date()} 
@@ -187,7 +216,7 @@ const App = ({ message, setMessage }) => {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div class="alpha-button" id="symbol2">
+            <div className="alpha-button" id="symbol2">
                 <button 
                     id="13" 
                     onMouseDown={() => press_time = new Date()} 
@@ -203,4 +232,4 @@ const App = ({ message, setMessage }) => {
   );
 }
 
-export default App;
+export default Board;

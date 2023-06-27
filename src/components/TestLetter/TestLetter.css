@@ -1,0 +1,16 @@
+.test-letter {
+  line-height: 30px;
+  letter-spacing: 0.11rem;
+}
+
+.test-letter-correct {
+  color: #6aff00;
+}
+
+.test-letter-incorrect {
+  color: #ff3c00;
+}
+
+.test-letter-not-attempted {
+  color: white;
+}

@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Dashboard } from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard";
 import './styles/App.css';
 import { AuthContext } from "./contexts/AuthContext";
 
