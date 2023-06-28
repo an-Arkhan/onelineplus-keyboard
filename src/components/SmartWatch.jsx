@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import App from "../components/OneLineKeyboard";
 import Testletter from '../components/TestLetter/TestLetter';
 import Result from "./ResultContainer/ResultContainer";
@@ -13,17 +13,17 @@ function SmartWatch({
     onInputChange
 }) {
     const [message, setMessage] = useState("");
+
+    useEffect(() => {
+        if (message != "") {
+          setMessage(message);
+          onInputChange(message);
+        }
+      }, [message]);
+
     const changeInput = (e) => {
         setMessage(e.target.value);
         onInputChange(e.target.value);
-    }
-
-    const textAreaRef = useRef();
-    const [wordCount,setWordCount] = useState(0);
-
-    const countWords = () => {
-      const text = textAreaRef.current.value;
-      setWordCount(text.split(" ").length);
     }
 
     return(
@@ -54,7 +54,6 @@ function SmartWatch({
             <div className="Smartwatch m-auto mt-5">    
                 <div className="text-center" id="key-input">
                     <textarea
-                    ref={textAreaRef}
                     value={(message)}
                     className="box-input"
                     type="text"

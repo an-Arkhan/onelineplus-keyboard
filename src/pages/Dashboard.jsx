@@ -91,9 +91,9 @@ class Dashboard extends React.Component {
         if (!this.state.timerStarted) {
             this.startTimer();
         }
-        const charachters = inputValue.length;
+        const characters = inputValue.length;
         const words = inputValue.split(" ").length;
-        const index = charachters - 1;
+        const index = characters - 1;
 
         if (index < 0) {
             this.setState({
@@ -104,14 +104,14 @@ class Dashboard extends React.Component {
                     },
                     ...this.state.testInfo.slice(1),
                 ],
-                charachters,
+                characters,
                 words,
             });
             return;
         }
 
         if (index >= this.state.selectedParagraph.length) {
-            this.setState({ charachters, words });
+            this.setState({ characters, words });
             return;
         }
 
@@ -131,7 +131,7 @@ class Dashboard extends React.Component {
         this.setState({
             testInfo,
             words,
-            charachters,
+            characters,
             incorrectCount: isMistake ? this.state.incorrectCount : this.state.incorrectCount + 1
         });
     };
@@ -145,7 +145,7 @@ class Dashboard extends React.Component {
                 </div>
                 <SmartWatch
                     words={this.state.words}
-                    charachters={this.state.charachters}
+                    characters={this.state.characters}
                     wpm={this.state.wpm} 
                     selectedParagraph={this.state.selectedParagraph}
                     timeRemaining={this.state.timeRemaining}
