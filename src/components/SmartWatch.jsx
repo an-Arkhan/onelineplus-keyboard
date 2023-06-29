@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import App from "../components/OneLineKeyboard";
 import Testletter from '../components/TestLetter/TestLetter';
 import Result from "./ResultContainer/ResultContainer";

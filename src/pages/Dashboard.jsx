@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { SAMPLE_PARAGRAPHS } from '../data/samplePara';
 import SmartWatch from '../components/SmartWatch';
 
