@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import App from "../components/OneLineKeyboard";
 import Testletter from '../components/TestLetter/TestLetter';
 import Result from "./ResultContainer/ResultContainer";
+import Container from '@mui/material/Container';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 function SmartWatch({
     words,
@@ -36,6 +39,17 @@ function SmartWatch({
                     {!timerStarted && "Start typing to start the test"}
                 </p>
             </div>
+            <div>
+                <Container maxWidth="sm" className="mt-2">
+                    <Card>
+                        <CardContent className="grid grid-cols-3 gap-2">
+                            <Result cardName="Words" cardValue={words}/>
+                            <Result cardName="Characters" cardValue={characters}/>
+                            <Result cardName="WPM" cardValue={wpm}/>
+                        </CardContent>
+                    </Card>
+                </Container>
+            </div>
             <div className='section'>
                 <div className='card has-background-dark'>
                     <div className='card-content'>
@@ -62,11 +76,6 @@ function SmartWatch({
                     />
                 </div>
                 <App setMessage={setMessage} message={message} />
-            </div>
-            <div>
-                <Result cardName="Words" cardValue={words}/>
-                <Result cardName="Characters" cardValue={characters}/>
-                <Result cardName="WPM" cardValue={wpm}/>
             </div>
         </>
     )
