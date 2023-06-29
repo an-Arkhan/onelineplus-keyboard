@@ -67,6 +67,7 @@ class Dashboard extends React.Component {
             //  console.log("Interval Set " + this.setState.timeRemaining);
             if (this.state.timeRemaining > 0) {
                 // Change the WPM
+                // eslint-disable-next-line no-unused-vars
                 const check = this.state.timerStarted;
                 const timeSpent = TotalTime - this.state.timeRemaining;
                 const wpm = timeSpent > 0

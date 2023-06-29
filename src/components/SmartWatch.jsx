@@ -15,11 +15,11 @@ function SmartWatch({
     const [message, setMessage] = useState("");
 
     useEffect(() => {
-        if (message != "") {
+        if (message !== "") {
           setMessage(message);
           onInputChange(message);
         }
-      }, [message]);
+      }, [message, onInputChange]);
 
     const changeInput = (e) => {
         setMessage(e.target.value);
