@@ -16,7 +16,7 @@ import { Keyboard, Pagination, Navigation } from "swiper";
 // word data
 var data = require("../WORD_DATA.json")
 
-const Board = ({ message, setMessage }) => {
+function Board ({ message, setMessage }) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [isCap, setIsCap] = useState(0);
 
@@ -42,8 +42,8 @@ const Board = ({ message, setMessage }) => {
       }
     }
 
-    const autoText = auto => {
-        setMessage(auto);
+    const autoText = (e) => {
+        setMessage(message+e);
     }
 
   return (
@@ -52,24 +52,33 @@ const Board = ({ message, setMessage }) => {
         <div className="grid grid-flow-col mx-auto topButton">
             {data
                 .filter((item) => {
-                    const keyTerm = message.toLowerCase();
+                    const keyTerm = message.toLowerCase().split(" ");
+                    const lengthWord = keyTerm.length;
+                    const sliceWord = keyTerm.slice(lengthWord-1);
                     const words = item.words.toLowerCase();
 
                     return (
-                        keyTerm &&
-                        words.startsWith(keyTerm) &&
-                        words !== keyTerm
+                        sliceWord &&
+                        words.startsWith(sliceWord) &&
+                        words !== sliceWord
                     )
                 })
                 .slice(0,3)
                 .map((item) => (
                     <div 
-                        onClick={() => autoText(item.words+" ")}
+                        onClick={() => {
+                            if(message === ""){
+                                autoText(item.words+" ")
+                            } else {
+                                autoText(item.words.slice(1)+" ")
+                            }
+                        }}
                         className="my-auto py-2 px-2 autotext"
                         key={item.words}>
                         {item.words}
                     </div>
                 ))
+                .sort()
             }
           {/* <div className="my-auto px-2 textOne">Lorem</div>
           <div className="my-auto px-2 textTwo">Ipsum</div>

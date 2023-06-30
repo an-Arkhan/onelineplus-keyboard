@@ -2,14 +2,8 @@ import React from "react";
 import './TestLetter.css'
 
 const Testletter = ({ individualLetterInfo }) => {
-    const statusClassName = {
-        correct : "test-letter-correct",
-        incorrect : "test-letter-incorrect",
-        notAttempted : "test-letter-not-attempted",
-    }[individualLetterInfo.status];
-
     return (
-        <span className={`test-letter ${statusClassName}`}>
+        <span className={`test-letter`}>
             {individualLetterInfo.testLetter}
         </span>
     )

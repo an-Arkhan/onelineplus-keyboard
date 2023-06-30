@@ -53,9 +53,6 @@ function SmartWatch({
                             <Result cardName="Words" cardValue={words}/>
                             <Result cardName="Characters" cardValue={characters}/>
                             <Result cardName="WPM" cardValue={wpm}/>
-                            <p>
-                                <b>Accuracy:</b> {Number((( (characters - incorrectCount) / characters)*100)).toFixed(2)}%
-                            </p>
                         </CardContent>
                     </Card>
                 </Container>
