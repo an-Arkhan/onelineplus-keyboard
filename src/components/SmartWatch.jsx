@@ -82,6 +82,7 @@ function SmartWatch({
                                     className="box-input"
                                     type="text"
                                     id="message"
+                                    readOnly
                                     onChange={(e) => changeInput(e)} />
                             </div>
                             <App setMessage={setMessage} message={message} />
