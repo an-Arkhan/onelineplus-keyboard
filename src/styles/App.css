@@ -73,6 +73,7 @@ body {
 }
 
 .topButton {
+  overflow-x: scroll;
   height: 35px;
   border-top: 1px white;
   border-style: solid;
@@ -83,6 +84,17 @@ body {
 
 .topButton div {
   color: white;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.topButton::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.topButton {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .autotext {
