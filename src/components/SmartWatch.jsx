@@ -13,7 +13,9 @@ function SmartWatch({
     timeRemaining,
     timerStarted,
     testInfo,
-    onInputChange
+    startAgain,
+    onInputChange,
+    incorrectCount
 }) {
     const [message, setMessage] = useState("");
 
@@ -27,6 +29,11 @@ function SmartWatch({
     const changeInput = (e) => {
         setMessage(e.target.value);
         onInputChange(e.target.value);
+    }
+
+    const resetText = () => {
+        startAgain();
+        setMessage("");
     }
 
     return(
@@ -46,6 +53,9 @@ function SmartWatch({
                             <Result cardName="Words" cardValue={words}/>
                             <Result cardName="Characters" cardValue={characters}/>
                             <Result cardName="WPM" cardValue={wpm}/>
+                            <p>
+                                <b>Accuracy:</b> {Number((( (characters - incorrectCount) / characters)*100)).toFixed(2)}%
+                            </p>
                         </CardContent>
                     </Card>
                 </Container>
@@ -65,17 +75,31 @@ function SmartWatch({
                     </div>
                 </div>
             </div>
-            <div className="Smartwatch m-auto mt-5">    
-                <div className="text-center" id="key-input">
-                    <textarea
-                    value={(message)}
-                    className="box-input"
-                    type="text"
-                    id="message"
-                    onChange={(e) => changeInput(e)}
-                    />
-                </div>
-                <App setMessage={setMessage} message={message} />
+            <div className="Smartwatch m-auto mt-5">
+                {
+                    timeRemaining > 0 ? (
+                        <>
+                            <div className="text-center" id="key-input">
+                                <textarea
+                                    value={(message)}
+                                    className="box-input"
+                                    type="text"
+                                    id="message"
+                                    onChange={(e) => changeInput(e)} />
+                            </div>
+                            <App setMessage={setMessage} message={message} />
+                        </>
+                    ) : (
+                        <div className="text-center py-4">
+                            <button
+                                onClick={() => resetText()}
+                                className="start-again-btn"
+                            >
+                                Try again
+                            </button>
+                        </div>
+                    )
+                }
             </div>
         </>
     )

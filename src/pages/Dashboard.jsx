@@ -151,8 +151,9 @@ class Dashboard extends React.Component {
                     selectedParagraph={this.state.selectedParagraph}
                     timeRemaining={this.state.timeRemaining}
                     timerStarted={this.state.timerStarted}
-                    onInputChange={this.handleUserInput}
                     testInfo={this.state.testInfo}
+                    onInputChange={this.handleUserInput}
+                    startAgain={this.startAgain}
                     incorrectCount={this.state.incorrectCount}
                 />
             </div>
