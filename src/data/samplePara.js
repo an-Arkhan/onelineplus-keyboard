@@ -4,5 +4,5 @@
  */
 
  export const SAMPLE_PARAGRAPHS = [
-    "papan ketik ini adalah sebuah prototipe dimana tata letak yang dirancang untuk perangkat jam tangan pintar.",
+    "halo ini web uji aplikasi untuk papan ketik jam tangan pintar dan saya harap mudah dipahami oleh semua orang. ketik mudah dan cepat untuk jam tangan pintar dengan tata letak ini.",
 ];
