@@ -8,7 +8,7 @@ body {
 }
 
 .section {
-  padding: 1.5rem 1.5rem;
+  padding: 0.5rem 0.5rem;
 }
 
 @media (min-width: 800px) {
@@ -142,6 +142,11 @@ body {
   cursor: pointer;
   transition: background-color 0.2s;
   background-color: #3e4248;
+}
+
+.caution {
+  font-size: smaller;
+  padding-inline: 5px;
 }
 
 .start-again-btn:hover,

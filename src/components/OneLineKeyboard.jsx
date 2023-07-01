@@ -63,7 +63,7 @@ function Board ({ message, setMessage }) {
                         words !== sliceWord
                     )
                 })
-                .slice(0,3)
+                .slice(0,5)
                 .map((item) => (
                     <div 
                         onClick={() => {

@@ -38,14 +38,6 @@ function SmartWatch({
 
     return(
         <>
-            <div className='grid grid-cols-1 timer mt-3'>
-                <p className="timer">00:
-                    {timeRemaining >= 10 ? timeRemaining : `0${timeRemaining}`}
-                </p>
-                <p className="timer-info">
-                    {!timerStarted && "Start typing to start the test"}
-                </p>
-            </div>
             <div>
                 <Container maxWidth="sm" className="mt-2">
                     <Card>
@@ -56,6 +48,14 @@ function SmartWatch({
                         </CardContent>
                     </Card>
                 </Container>
+                <div className='grid grid-cols-1 text-center mt-5 px-5'>
+                    <p className="timer">00:
+                        {timeRemaining >= 10 ? timeRemaining : `0${timeRemaining}`}
+                    </p>
+                    <p className="timer-info">
+                        Mohon ketik sesuai dengan kalimat yang tersedia di kotak hitam berikut untuk <strong>memulai dan memudahkan pengujian</strong>:
+                    </p>
+                </div>
             </div>
             <div className='section'>
                 <div className='card has-background-dark'>
@@ -72,7 +72,7 @@ function SmartWatch({
                     </div>
                 </div>
             </div>
-            <div className="Smartwatch m-auto mt-5">
+            <div className="Smartwatch m-auto mt-3">
                 {
                     timeRemaining > 0 ? (
                         <>
@@ -95,6 +95,9 @@ function SmartWatch({
                             >
                                 Try again
                             </button>
+                            <p className="caution">
+                                Mohon untuk melakukan tangkapan layar (screenshot) hasil untuk mengisi kuisioner.
+                            </p>
                         </div>
                     )
                 }
