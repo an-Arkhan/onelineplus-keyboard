@@ -46,10 +46,6 @@ function Board ({ message, setMessage }) {
         setMessage(message+e);
     }
 
-    const keyPress = message.toLowerCase().split(" ");
-    const lengthSent = keyPress.length;
-    const sliceMess = keyPress.slice(lengthSent-1);
-
   return (
     <>
       <div className="content-center keyboard">
