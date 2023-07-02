@@ -30,9 +30,9 @@ function Board ({ message, setMessage }) {
       // to differentiate long press and short press
       var gap_time = cur_time - press_time;
 
-      if(gap_time > 1500 && ((id >= 4 && id <= 12) || id === 14)) {
+      if(gap_time > 1000 && ((id >= 4 && id <= 13) || id === 14)) {
         // long press
-        const append = (id === 14) ? 0: id-3;
+        const append = (id === 14) ? 0: id-4;
         setMessage(message+append);
       } else {
         // short press
@@ -45,6 +45,10 @@ function Board ({ message, setMessage }) {
     const autoText = (e) => {
         setMessage(message+e);
     }
+
+    const keyPress = message.toLowerCase().split(" ");
+    const lengthSent = keyPress.length;
+    const sliceMess = keyPress.slice(lengthSent-1);
 
   return (
     <>
@@ -60,7 +64,7 @@ function Board ({ message, setMessage }) {
                     return (
                         sliceWord &&
                         words.startsWith(sliceWord) &&
-                        words !== sliceWord
+                        words !== keyTerm
                     )
                 })
                 .slice(0,5)
@@ -75,10 +79,11 @@ function Board ({ message, setMessage }) {
                         }}
                         className="my-auto py-2 px-2 autotext"
                         key={item.words}>
-                        {item.words}
+                        { 
+                            message === "" && message.split(" ").slice(message.length-1) ?  "" : item.words 
+                        }
                     </div>
                 ))
-                .sort()
             }
           {/* <div className="my-auto px-2 textOne">Lorem</div>
           <div className="my-auto px-2 textTwo">Ipsum</div>
@@ -128,7 +133,7 @@ function Board ({ message, setMessage }) {
         <SwiperSlide className="py-2">
             <div className="alpha-button" id="abc">
                 <button 
-                    id="4" 
+                    id="5" 
                     onMouseDown={() => press_time = new Date()} 
                     onMouseUp={onMouseUp} 
                     className="key">
@@ -139,7 +144,7 @@ function Board ({ message, setMessage }) {
         <SwiperSlide className="py-2">
             <div className="alpha-button" id="def">
                 <button 
-                    id="5" 
+                    id="6" 
                     onMouseDown={() => press_time = new Date()} 
                     onMouseUp={onMouseUp} 
                     className="key">
@@ -150,7 +155,7 @@ function Board ({ message, setMessage }) {
         <SwiperSlide>
             <div className="alpha-button" id="ghi">
                 <button 
-                    id="6" 
+                    id="7" 
                     onMouseDown={() => press_time = new Date()} 
                     onMouseUp={onMouseUp} 
                     className="key">
@@ -161,7 +166,7 @@ function Board ({ message, setMessage }) {
         <SwiperSlide>
             <div className="alpha-button" id="jkl">
                 <button 
-                    id="7" 
+                    id="8" 
                     onMouseDown={() => press_time = new Date()} 
                     onMouseUp={onMouseUp} 
                     className="key">
@@ -172,7 +177,7 @@ function Board ({ message, setMessage }) {
         <SwiperSlide>
             <div className="alpha-button" id="mno">
                 <button 
-                    id="8" 
+                    id="9" 
                     onMouseDown={() => press_time = new Date()} 
                     onMouseUp={onMouseUp} 
                     className="key">
@@ -183,7 +188,7 @@ function Board ({ message, setMessage }) {
         <SwiperSlide>
             <div className="alpha-button" id="pqrs">
                 <button 
-                    id="9" 
+                    id="10" 
                     onMouseDown={() => press_time = new Date()} 
                     onMouseUp={onMouseUp} 
                     className="key">
@@ -194,7 +199,7 @@ function Board ({ message, setMessage }) {
         <SwiperSlide>
             <div className="alpha-button" id="tuv">
                 <button 
-                    id="10" 
+                    id="11" 
                     onMouseDown={() => press_time = new Date()} 
                     onMouseUp={onMouseUp} 
                     className="key">
@@ -205,7 +210,7 @@ function Board ({ message, setMessage }) {
         <SwiperSlide>
             <div className="alpha-button" id="wxyz">
                 <button 
-                    id="11" 
+                    id="12" 
                     onMouseDown={() => press_time = new Date()} 
                     onMouseUp={onMouseUp} 
                     className="key">
@@ -216,7 +221,7 @@ function Board ({ message, setMessage }) {
         <SwiperSlide>
             <div className="alpha-button" id="symbol1">
                 <button 
-                    id="12" 
+                    id="13" 
                     onMouseDown={() => press_time = new Date()} 
                     onMouseUp={onMouseUp} 
                     className="key">
@@ -227,7 +232,7 @@ function Board ({ message, setMessage }) {
         <SwiperSlide>
             <div className="alpha-button" id="symbol2">
                 <button 
-                    id="13" 
+                    id="4" 
                     onMouseDown={() => press_time = new Date()} 
                     onMouseUp={onMouseUp} 
                     className="key">

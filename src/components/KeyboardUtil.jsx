@@ -3,6 +3,7 @@ let press_time = new Array(15);
 let cap1_cnt = 0;
 
 let _characters = [
+  ["*", "#", "@", "$", "&", "0"],
   ["a", "b", "c", "1"],
   ["d", "e", "f", "2"],
   ["g", "h", "i", "3"],
@@ -12,7 +13,6 @@ let _characters = [
   ["t", "u", "v", "7"],
   ["w", "x", "y", "z", "8"],
   [".", ",", "?", "!", "(", ")", "/", "9"],
-  ["*", "#", "@", "$", "&", "0"]
 ];
 
 export const setText = (id, message, isCap) => {
@@ -31,24 +31,24 @@ export const setText = (id, message, isCap) => {
     message = message.slice(0, -1);
   }
 
-// letters
+// huruf dan angka (letter)
   if(id >= 4 && id <= 13) {
       if(last_press === id &&  cur_time - press_time[id] <= 500) {
         // previous button clicked === current button clicked
-        // and time difference is less than 500ms
+        // dan time difference kurang dari 500ms
         let last = message[message.length-1];
         let i = 0, n = _characters[id-4].length;
 
-        // to get next character
+        // karakter berikutnya
         while(i < n) {
             if(last.toLowerCase() === _characters[id-4][i]) break;
             i++;
         }
 
-        // remove previous character
+        // hapus karakter sebelumnya
         message = message.slice(0,-1);
     
-        // appended character should be uppercase or not
+        // menentukan karakter caps huruf besar atau tidak
         if(((isCap === 2) || (isCap === 1 && cap1_cnt === 1)) && id !== 13) {
             if(i >= n-2) message += _characters[id-4][n-1].toUpperCase();  
             else message += _characters[id-4][i+1].toUpperCase();
@@ -66,13 +66,13 @@ export const setText = (id, message, isCap) => {
 
   // space
   if (id === 14) {
-    if(last_press === id &&  cur_time - press_time[id] <= 500) {
+    if(last_press === id &&  cur_time - press_time[id] <= 300) {
         message = message.slice(0,-1);  
         message += "0";
     }else message += " ";
   }
 
-  // set letter style, i.e to capitals and vice versa
+  // menentukan kondisi huruf kapital
   if(id === 15) {
       isCap = (isCap+1)%3;
       if(isCap === 1) cap1_cnt = 0;
