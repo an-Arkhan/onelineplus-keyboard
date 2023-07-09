@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import App from "../components/OneLineKeyboard";
 import Testletter from '../components/TestLetter/TestLetter';
 import Result from "./ResultContainer/ResultContainer";
@@ -18,6 +18,7 @@ function SmartWatch({
     incorrectCount
 }) {
     const [message, setMessage] = useState("");
+    const textInput = useRef(null);
 
     useEffect(() => {
         if (message !== "") {
@@ -25,11 +26,6 @@ function SmartWatch({
           onInputChange(message);
         }
       }, [message, onInputChange]);
-
-    const changeInput = (e) => {
-        setMessage(e.target.value);
-        onInputChange(e.target.value);
-    }
 
     const resetText = () => {
         startAgain();
@@ -72,18 +68,19 @@ function SmartWatch({
                     </div>
                 </div>
             </div>
-            <div className="Smartwatch m-auto mt-3">
+            <div className="Smartwatch m-auto">
                 {
                     timeRemaining > 0 ? (
                         <>
                             <div className="text-center" id="key-input">
                                 <textarea
+                                    ref={textInput}
                                     value={(message)}
                                     className="box-input"
                                     type="text"
                                     id="message"
                                     readOnly
-                                    onChange={(e) => changeInput(e)} />
+                                />
                             </div>
                             <App setMessage={setMessage} message={message} />
                         </>

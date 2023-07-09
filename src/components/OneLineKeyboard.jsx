@@ -41,10 +41,31 @@ function Board ({ message, setMessage }) {
           setIsCap(result.isCap);
       }
     }
+    
+    const levenshteinDistance = (messages, datas) => {
+        if(!messages.length) return messages.length;
+        if(!datas.length) return datas.length;
+            const arr = [];
+            for (let i = 0; i <= messages.length; i++) {
+                arr[i] = [i];
+                for (let j = 1; j <= datas.length; j++) {
+                    arr[i][j] =
+                        i === 0
+                            ? j
+                            : Math.min(
+                                arr[i-1][j] + 1,
+                                arr[i][j-1] + 1,
+                                arr[i-1][j-1] + (messages[j-1] === datas[i-1] ? 0 : 1)
+                            );
+                }
+            }
+        return arr[messages.length][datas.length]
+    }
 
     const autoText = (e) => {
         setMessage(message+e);
     }
+
 
   return (
     <>
@@ -67,10 +88,16 @@ function Board ({ message, setMessage }) {
                 .map((item) => (
                     <div 
                         onClick={() => {
+                            const keyTerm = message.toLowerCase().split(" ");
+                            const lengthWord = keyTerm.length;
+                            const sliceWord = keyTerm.slice(lengthWord-1);
+                            const strWord = sliceWord.toString(sliceWord).length;
                             if(message === ""){
-                                autoText(item.words+" ")
+                                autoText(item.words)
+                                console.log(levenshteinDistance(message, item.words))
                             } else {
-                                autoText(item.words.slice(1)+" ")
+                                autoText(item.words.slice(strWord))
+                                console.log(levenshteinDistance(message, item.words))
                             }
                         }}
                         className="my-auto py-2 px-2 autotext"

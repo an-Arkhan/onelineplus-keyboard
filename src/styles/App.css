@@ -9,6 +9,7 @@ body {
 
 .section {
   padding: 0.5rem 0.5rem;
+  padding-bottom: 1.5rem;
 }
 
 @media (min-width: 800px) {
