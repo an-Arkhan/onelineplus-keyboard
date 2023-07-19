@@ -2,6 +2,7 @@
 import React from 'react';
 import { SAMPLE_PARAGRAPHS } from '../data/samplePara';
 import SmartWatch from '../components/SmartWatch';
+import UsersList from '../components/ResponderList';
 
 const TotalTime = 60;
 const DataUrl = "http://metaphorpsum.com/paragraphs/2/4"
@@ -24,7 +25,6 @@ class Dashboard extends React.Component {
             Math.floor(Math.random() * SAMPLE_PARAGRAPHS.length)
         ];
         const selectedParagraphArray = data.split("");
-        //  console.log("splitted array - ", selectedParagraphArray);
         const testInfo = selectedParagraphArray.map((selectedLetter) => {
             return {
                 testLetter: selectedLetter,
@@ -156,6 +156,7 @@ class Dashboard extends React.Component {
                     startAgain={this.startAgain}
                     incorrectCount={this.state.incorrectCount}
                 />
+                <UsersList />
             </div>
             </>
         );

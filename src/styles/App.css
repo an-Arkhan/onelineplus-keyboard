@@ -7,6 +7,37 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.btn-primary {
+  background-color: #0d6efd!important;
+}
+
+.btn-primary:hover {
+  background-color: #0a59cf!important;
+}
+
+.btn-secondary {
+  background-color: #535353!important;
+}
+
+.btn-secondary:hover {
+  background-color: #424242!important;
+}
+
+.btn-danger {
+  background-color: #dc3545!important;
+}
+.btn-danger:hover {
+  background-color: #ad2937!important;
+}
+
+.btn-dark {
+  background-color: #212529!important;
+}
+
+.btn-dark:hover {
+  background-color: #353a3f!important;
+}
+
 .section {
   padding: 0.5rem 0.5rem;
   padding-bottom: 1.5rem;
