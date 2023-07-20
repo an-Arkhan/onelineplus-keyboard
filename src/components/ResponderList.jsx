@@ -14,10 +14,11 @@ const UsersList = () => {
     setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
-  const deleteHandler = async (id) => {
-    await UserDataService.deleteUser(id);
-    getUsers();
-  };
+//   const deleteHandler = async (id) => {
+//     await UserDataService.deleteUser(id);
+//     getUsers();
+//   };
+
   return (
     <>
       <div className="grid grid-cols-1 px-5 my-4">
@@ -47,13 +48,13 @@ const UsersList = () => {
                   <td>{doc.age}</td>
                   <td>{doc.wpm}</td>
                   <td>{doc.characters}</td>
-                  <td>
+                  {/* <td>
                     <Button
                       variant="danger"
                       className="delete"
                       onClick={(e) => deleteHandler(doc.id)}
                     ></Button>
-                  </td>
+                  </td> */}
                 </tr>
               );
             })}
